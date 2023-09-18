@@ -35,8 +35,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.gamesController = void 0;
+var http_status_1 = __importDefault(require("http-status"));
 var game_service_1 = require("../services/game.service");
 function create(req, res) {
     return __awaiter(this, void 0, void 0, function () {
@@ -45,7 +49,7 @@ function create(req, res) {
                 case 0: return [4 /*yield*/, game_service_1.gamesService.createService(req.body)];
                 case 1:
                     _a.sent();
-                    res.status(201).send("Created new customer!");
+                    res.status(201).send(http_status_1.default.CREATED);
                     return [2 /*return*/];
             }
         });
@@ -53,13 +57,13 @@ function create(req, res) {
 }
 function getGames(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var customer;
+        var games;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, game_service_1.gamesService.allGamesService()];
                 case 1:
-                    customer = _a.sent();
-                    res.status(201).send(customer);
+                    games = _a.sent();
+                    res.status(201).send(games);
                     return [2 /*return*/];
             }
         });
@@ -72,7 +76,7 @@ function updateGames(req, res) {
                 case 0: return [4 /*yield*/, game_service_1.gamesService.updateService(req.body)];
                 case 1:
                     _a.sent();
-                    res.status(200).send("Update customer!");
+                    res.status(200).send(http_status_1.default.OK);
                     return [2 /*return*/];
             }
         });
@@ -88,7 +92,7 @@ function deleteGames(req, res) {
                     return [4 /*yield*/, game_service_1.gamesService.deleteService(id)];
                 case 1:
                     _a.sent();
-                    res.status(202).send("Successfully deleted");
+                    res.status(202).send(http_status_1.default.OK);
                     return [2 /*return*/];
             }
         });
