@@ -19,7 +19,7 @@ app.use(function (err, req, res, next) {
         return res.status(404).send(err.message);
     }
     console.log(err);
-    res.status(500).send("someting is worong cantact the developer :(");
+    res.status(500).send("aqui");
 });
 var port = Number(process.env.PORT) || 5000;
 app.listen(port, function () {

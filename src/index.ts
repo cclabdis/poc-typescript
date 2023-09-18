@@ -16,7 +16,7 @@ app.use((err:ApplicationError,req:Request,res:Response,next:NextFunction)=>{
         return res.status(404).send(err.message)
     }
     console.log(err)
-    res.status(500).send("someting is worong cantact the developer :(")
+    res.status(500).send("aqui")
 })
 
 
